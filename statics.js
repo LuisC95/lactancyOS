@@ -1,4 +1,4 @@
-class Statics extends baby
+class Statics extends Baby
 {
     constructor(name, weigth, size, sleepAverage, foodAverage, weigthAverage, growth)
     {
