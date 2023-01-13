@@ -7,4 +7,8 @@ class Lactancy extends Mom
         this.nextFood = nextFood; 
 
     }
+    chrono(e)
+    {
+    
+    }
 }
