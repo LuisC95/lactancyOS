@@ -1,30 +1,52 @@
 const grace = new Baby("Grace", "Female", 7.11, 19.5);
 
-let millisec = 0;
-let sec = 0; 
-let min = 0;
-let hours = 0;
+var seconds, inutes ,hours, id;
+seconds = 0;
+minutes = 0;
+hours = 0;
 
- function chrono()
- {
-    millisec++
-    if(millisec > 99)
+var start = document.getElementById("start");
+var stopW = document.getElementById("stop");
+var resetW = document.getElementById("reset");
+
+start.addEventListener("click", chrono);
+stopW.addEventListener("click", stopWatch);
+resetW.addEventListener("click", reset);
+
+console.log(hours + ":" + minutes + ":" + seconds);
+
+function chrono()
+{
+    id = setInterval(run, 1000);
+
+    function run()
     {
-        millisec = 0;
-        sec++
-        if(sec > 60)
-        {
-            sec = 0;
-            min++
-            if(min = 5)
-            {
-                millisec = 'l';
-            }
-        }
+     seconds++
+     if(seconds == 6)
+     {
+        minutes++;
+        seconds = 0;
+     }
+     if (minutes == 6) 
+     {
+         hours++;
+         minutes = 0;
+     }
+     
+     console.log(hours + ":" + minutes + ":" + seconds);   
     }
-    console.log(min, sec, millisec)
- }
+}
+function stopWatch()
+{
+    clearInterval(id);
+    id = null;
+}
+function reset()
+{
+    stopWatch();
+    seconds = 0; 
+    minutes = 0; 
+    hours = 0; 
+    console.log(hours + ":" + minutes + ":" + seconds);
 
- chrono();
-
-console.log(millisec, sec, min, hours)
+}
