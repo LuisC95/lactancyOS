@@ -25,7 +25,7 @@ class Chronometer
             minutes = 0; 
             hours = 0; 
             console.log(hours + ":" + minutes + ":" + seconds);
-            if (timerTouch == timesTouchted) 
+            if (timerTouch != timesTouchted) 
             {
                 timerTouch++
             }
@@ -35,8 +35,6 @@ class Chronometer
         {
             clearInterval(id);
             id = null;
-            status = "pause";
-            console.log(status);
         }
 
         function chrono(e)
@@ -66,6 +64,7 @@ class Chronometer
             else if(timerTouch == 0)
             {
                 stopWatch();
+                timerTouch++
             }
         }
     }
